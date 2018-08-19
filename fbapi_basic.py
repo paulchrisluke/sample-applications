@@ -7,7 +7,6 @@ import logging
 import os
 import pandas as pd
 import time
-import warnings
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.adsinsights import AdsInsights
 from facebook_business.api import FacebookAdsApi
@@ -180,7 +179,6 @@ try:
                                                 'value': ['DELETED',
                                                           'ARCHIVED']}]}
                                 # DEFINE PARAMETERS FOR DELETED ADS
-            warnings.simplefilter('ignore')
             insights_cursor = AdAccount(act_id).get_insights(fields=my_fields, params=my_params, async=True)
             deleted_cursor = AdAccount(act_id).get_insights(fields=my_fields, params=my_params_deleted, async=True)
             # SEND REQUEST FOR ADS INSIGHTS

@@ -94,7 +94,7 @@ def goog_report_basic(client, report, date):
     report_query = (googleads.adwords.ReportQueryBuilder()
                     .Select('Date', 'Impressions', 'Clicks', 'Cost', 'VideoViews',
                             'VideoQuartile25Rate', 'VideoQuartile50Rate', 'VideoQuartile75Rate', 'VideoQuartile100Rate',
-                            'ExternalCustomerId', 'CampaignId', 'AdGroupId', 'Id')
+                            'Device', 'ExternalCustomerId', 'CampaignId', 'AdGroupId', 'Id')
                     .From('AD_PERFORMANCE_REPORT')
                     .During(date)
                     .Build())
@@ -111,7 +111,7 @@ for account in my_account_id:
         my_year = datetime.datetime.strftime(current_date, '%Y')
         my_month = datetime.datetime.strftime(current_date, '%m')
         my_day = datetime.datetime.strftime(current_date, '%d')
-        my_file_name = 'goog_' + account + '_' + str(my_year) + str(my_month) + str(my_day) + '.csv'
+        my_file_name = 'goog_' + account + '_' + 'basic' + '_' + str(my_year) + str(my_month) + str(my_day) + '.csv'
         my_file_pathname = report_pathname + '/' + my_file_name        
         digit = date.replace('-', '')
         adwords_date = str(digit) + ", " + str(digit)

@@ -754,7 +754,7 @@ SELECT
 	b.fantasy_points,
 	b.fantasy_platform
 FROM public.game_team a
-LEFT JOIN public.fantasy_football_points_total b ON a.team = b.player_id || ' D/ST' AND a.gsis_id = b.gsis_id);
+LEFT JOIN public.fantasy_football_points_total b ON a.team  || ' D/ST' = b.player_id AND a.gsis_id = b.gsis_id);
 
 CREATE VIEW public.fantasy_analytics AS(
 SELECT
